@@ -51,7 +51,7 @@ User.getAllUser = function (result) {
 };
 
 User.updateById = function(id, user, result){
-  sql.query("UPDATE users SET user = ? WHERE id = ?", [user.user, id], function (err, res) {
+  sql.query("UPDATE users SET name = ? WHERE id = ?", [user.user, id], function (err, res) {
     if(err) {
       console.log("error: ", err);
       result(null, err);
