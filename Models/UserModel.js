@@ -50,6 +50,21 @@ User.getAllUser = function (result) {
   });   
 };
 
+User.getAllCars = function (result) {
+  sql.query("Select * from car", function (err, res) {
+    
+    if(err) {
+      console.log("error: ", err);
+      result(null, err);
+    }
+    else{
+      console.log('users : ', res);  
+      
+      result(null, res);
+    }
+  });   
+};
+
 User.updateById = function(id, user, result){
   sql.query("UPDATE users SET name = ? WHERE id = ?", [user.user, id], function (err, res) {
     if(err) {
